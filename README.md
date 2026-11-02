@@ -137,29 +137,27 @@ Toda la lógica de manipulación de estado se concentra en `src/stores/`:
 
 ## 🌐 Publicación en GitHub y GitHub Pages
 
-El proyecto incluye un flujo automatizado en `.github/workflows/deploy.yml` que compila y publica en GitHub Pages automáticamente.
+El proyecto está configurado para publicarse de forma directa y sencilla mediante el comando `npm run deploy` (utilizando la rama `gh-pages`).
 
-### Pasos para publicar desde tu repositorio personal:
+### Pasos para publicar:
 
-1. **Crear un nuevo repositorio en GitHub:**
-   - Ve a [github.com/new](https://github.com/new).
-   - Nómbralo (por ejemplo: `vue-crud-pinia-spa`).
-   - Selecciónalo como **Público**.
-   - No inicialices con README (el proyecto ya lo incluye).
-
-2. **Vincular y subir el código:**
+1. **Subir el código fuente a la rama principal:**
    ```bash
-   git remote add origin https://github.com/<TU_USUARIO>/<TU_REPOSITORIO>.git
-   git branch -M main
    git push -u origin main
    ```
 
-3. **Habilitar GitHub Pages en el repositorio:**
-   - En tu repositorio de GitHub, haz clic en **Settings** (Configuración).
-   - En el menú lateral izquierdo, selecciona **Pages**.
-   - En la sección **Build and deployment > Source**, selecciona **GitHub Actions**.
-   - El workflow se ejecutará automáticamente en la pestaña **Actions** y publicará tu sitio en:
-     `https://<TU_USUARIO>.github.io/<TU_REPOSITORIO>/`
+2. **Publicar el sitio compilado en GitHub Pages con un solo comando:**
+   ```bash
+   npm run deploy
+   ```
+   *(Este comando compila el proyecto automáticamente con `npm run build` y sube los archivos a la rama `gh-pages` en tu repositorio).*
+
+3. **Verificar GitHub Pages en tu repositorio:**
+   - En tu repositorio de GitHub, entra a **Settings** > **Pages**.
+   - En **Build and deployment > Source**, asegúrate de que esté en **Deploy from a branch**.
+   - Selecciona la rama **`gh-pages`** y la carpeta **`/(root)`**, y haz clic en **Save**.
+   - ¡Listo! En 1 o 2 minutos tu sitio estará en línea en:
+     `https://<TU_USUARIO>.github.io/vue-crud-pinia-spa/`
 
 ---
 
